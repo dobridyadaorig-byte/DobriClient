@@ -5,6 +5,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.Hand;
+import net.minecraft.util.hit.EntityHitResult;
 
 import java.util.Random;
 
@@ -24,7 +25,10 @@ public class TriggerBot extends Module {
         if (mc.player == null || mc.currentScreen != null) return;
         if (delay > 0) { delay--; return; }
 
-        Entity target = mc.crosshairTarget instanceof Entity e ? e : null;
+        Entity target = null;
+        if (mc.crosshairTarget instanceof EntityHitResult ehr) {
+            target = ehr.getEntity();
+        }
         if (target == null || !(target instanceof LivingEntity) || !target.isAlive()) return;
         if (mc.player.distanceTo(target) > range) return;
         if (rng.nextDouble() < missChance) return;
