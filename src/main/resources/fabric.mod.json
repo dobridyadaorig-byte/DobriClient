@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "dobriclient",
+  "version": "${version}",
+  "name": "DobriClient",
+  "description": "DobriClient - built on the bench.",
+  "authors": ["DobriClient"],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": { "client": ["com.dobri.DobriClient"] },
+  "mixins": ["dobriclient.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "fabric-api": "*",
+    "minecraft": "~1.21.11",
+    "java": ">=21"
+  }
+}

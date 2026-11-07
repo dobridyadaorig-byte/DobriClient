@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "com.dobri.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "WorldRendererMixin",
+    "GameRendererMixin",
+    "BackgroundMixin"
+  ],
+  "injectors": { "defaultRequire": 1 }
+}
