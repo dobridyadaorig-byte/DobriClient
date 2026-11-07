@@ -16,7 +16,7 @@ public class HudModules {
         HudRenderCallback.EVENT.register(HudModules::render);
     }
 
-    private static void render(DrawContext ctx, float tickDelta) {
+    private static void render(DrawContext ctx, net.minecraft.client.render.RenderTickCounter tick) {
         MinecraftClient mc = MinecraftClient.getInstance();
         if (mc.player == null || mc.options.hudHidden) return;
 
