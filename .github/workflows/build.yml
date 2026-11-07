@@ -1,10 +1,13 @@
-name: Build DobriClient
-on:
+- name: Clear loom cache
+  run: |
+    rm -rf ~/.gradle/caches/fabric-loom
+    rm -rf .gradle/loom-cachename: Build DobriClient
+ on:
   workflow_dispatch:
   push:
     branches: [ main ]
 
-jobs:
+ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
