@@ -2,24 +2,21 @@ package com.dobri.hud;
 
 import com.dobri.DobriClient;
 import com.dobri.module.Module;
-import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
 
 import java.util.Collection;
 
 public class HudModules {
     public static void register() {
-        Identifier id = Identifier.of("dobriclient", "hud_main");
-        HudElementRegistry.attachElementBefore(VanillaHudElements.CHAT, id, HudModules::render);
+        HudRenderCallback.EVENT.register(HudModules::render);
     }
 
-    private static void render(DrawContext ctx, net.minecraft.client.render.RenderTickCounter tick) {
+    private static void render(DrawContext ctx, float tickDelta) {
         MinecraftClient mc = MinecraftClient.getInstance();
         if (mc.player == null || mc.options.hudHidden) return;
 
