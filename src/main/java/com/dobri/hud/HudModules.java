@@ -27,7 +27,7 @@ public class HudModules {
     }
 
     private static void renderWatermark(DrawContext ctx, MinecraftClient mc) {
-        double t = Util.getMillis() / 1000.0;
+        double t = System.currentTimeMillis() / 1000.0;
         float pulse = (float) (Math.sin(t * 2) * 0.5 + 0.5);
         int r = (int) (0x00 + (0xFF - 0x00) * pulse);
         int g = (int) (0xFF - 0x40 * pulse);
